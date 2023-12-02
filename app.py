@@ -23,7 +23,7 @@ if "messages" not in st.session_state.keys():
 @st.cache_resource(show_spinner=False)
 def load_data():
     with st.spinner(text="Loading and indexing John's history - give me a moment"):
-        #logger.addHandler(AzureEventHandler(connection_string=st.secrets.azure_connection_string))
+        logger.addHandler(AzureEventHandler(connection_string=st.secrets.azure_connection_string))
         logger.info('startup starting')
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
